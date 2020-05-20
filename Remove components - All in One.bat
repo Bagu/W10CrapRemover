@@ -8,7 +8,7 @@ rem Permissions verifications
 
 rem Not admin
 if '%errorlevel%' NEQ '0' (
-echo V‚rification des privilŠges administrateur
+echo VÂ‚rification des privilÂŠges administrateur
 goto UACPrompt
 ) else ( goto gotAdmin )
 
@@ -31,14 +31,14 @@ setlocal
 rem Change current directory to script location - useful for including .ps1 files
 cd %~dp0
 
-echo ÉÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ»
-echo º Windows 10 craps remover º
-echo ÈÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ¼
+echo à¸©à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸›
+echo à¸š Windows 10 craps remover à¸š
+echo à¸¨à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸œ
 echo.
 echo Cet utilitaire permet de nettoyer le mieux
-echo possible les installations fraŒches de Windows 10.
-echo Il restera quelques paramŠtres … changer
-echo et quelques programme … retirer.
+echo possible les installations fraÂŒches de Windows 10.
+echo Il restera quelques paramÂŠtres â€¦ changer
+echo et quelques programme â€¦ retirer.
 echo.
 
 : Invoke this file as powershell expression
@@ -47,16 +47,16 @@ powershell -executionpolicy remotesigned -Command "Invoke-Expression $([System.I
 endlocal
 
 echo.
-echo ÉÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ»
-echo º Remove licence checking º
-echo ÈÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ¼
+echo à¸©à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸›
+echo à¸š Remove licence checking à¸š
+echo à¸¨à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸œ
 echo.
 reg add "HKLM\Software\Policies\Microsoft\Windows NT\CurrentVersion\Software Protection Platform" /v NoGenTicket /t REG_DWORD /d 1 /f
 
 echo.
-echo ÉÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ»
-echo º Change many settings º
-echo ÈÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ¼
+echo à¸©à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸›
+echo à¸š Change many settings à¸š
+echo à¸¨à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸œ
 echo.
 @rem *** Disable Some Service ***
 sc stop DiagTrack
@@ -112,9 +112,9 @@ schtasks /Change /TN "Microsoft\Office\OfficeTelemetryAgentFallBack" /Disable
 schtasks /Change /TN "Microsoft\Office\Office 15 Subscription Heartbeat" /Disable
 
 echo.
-echo ÉÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ»
-echo º Set Internet Explorer settings º
-echo ÈÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ¼
+echo à¸©à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸›
+echo à¸š Set Internet Explorer settings à¸š
+echo à¸¨à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸œ
 echo.
 rem Disable IE First Run Wizard and RSS Feeds
 reg add "HKLM\SOFTWARE\Policies\Microsoft\Internet Explorer\Main" /v "DisableFirstRunCustomize" /t REG_DWORD /d 1 /f
@@ -131,9 +131,9 @@ rem Disable warm is mix for secure and not secure elements
 reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Internet Settings" /v "WarnonZoneCrossing" /t REG_DWORD /d 0 /f
 
 echo.
-echo ÉÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ»
-echo º Remove Telemetry and Data Collection º
-echo ÈÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ¼
+echo à¸©à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸›
+echo à¸š Remove Telemetry and Data Collection à¸š
+echo à¸¨à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸œ
 echo.
 reg add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Device Metadata" /v PreventDeviceMetadataFromNetwork /t REG_DWORD /d 1 /f
 reg add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\DataCollection" /v "AllowTelemetry" /t REG_DWORD /d 0 /f
@@ -146,23 +146,23 @@ reg add "HKLM\SYSTEM\CurrentControlSet\Control\WMI\AutoLogger\AutoLogger-Diagtra
 reg add "HKLM\SYSTEM\CurrentControlSet\Control\WMI\AutoLogger\SQMLogger" /v "Start" /t REG_DWORD /d 0 /f
 
 echo.
-echo ÉÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ»
-echo º Show file extensions in Explorer º
-echo ÈÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ¼
+echo à¸©à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸›
+echo à¸š Show file extensions in Explorer à¸š
+echo à¸¨à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸œ
 echo.
 reg add "HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /v "HideFileExt" /t  REG_DWORD /d 0 /f
 
 echo.
-echo ÉÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ»
-echo º Disable Cortana º
-echo ÈÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ¼
+echo à¸©à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸›
+echo à¸š Disable Cortana à¸š
+echo à¸¨à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸œ
 echo.
 reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows\Windows Search" /v AllowCortana /t REG_DWORD /d 0 /f
 
 echo.
-echo ÉÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ»
-echo º Remove Windows Tips º
-echo ÈÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ¼
+echo à¸©à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸›
+echo à¸š Remove Windows Tips à¸š
+echo à¸¨à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸œ
 echo.
 reg add "HKLM\Software\Policies\Microsoft\Windows\CloudContent" /v DisableSoftLanding /t REG_DWORD /d 1 /f
 reg add "HKLM\Software\Policies\Microsoft\Windows\CloudContent" /v DisableWindowsSpotlightFeatures /t REG_DWORD /d 1 /f
@@ -171,16 +171,16 @@ reg add "HKLM\Software\Policies\Microsoft\Windows\DataCollection" /v DoNotShowFe
 reg add "HKLM\Software\Policies\Microsoft\WindowsInkWorkspace" /v AllowSuggestedAppsInWindowsInkWorkspace /t REG_DWORD /d 0 /f
 
 echo.
-echo ÉÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ»
-echo º Turn off Windows Error Reporting º
-echo ÈÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ¼
+echo à¸©à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸›
+echo à¸š Turn off Windows Error Reporting à¸š
+echo à¸¨à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸œ
 echo.
 reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows\Windows Error Reporting" /v Disabled /t REG_DWORD /d 1 /f
 
 echo.
-echo ÉÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ»
-echo º Remove Contact button and co in Taskbar º
-echo ÈÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ¼
+echo à¸©à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸›
+echo à¸š Remove Contact button and co in Taskbar à¸š
+echo à¸¨à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸œ
 echo.
 reg add "HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced\People" /v "PeopleBand" /t REG_DWORD /d 0 /f
 reg add "HKU\.DEFAULT\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced\People" /V PeopleBand /t REG_DWORD /d 0 /f
@@ -188,16 +188,16 @@ reg add "HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Ad
 reg add "HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /v "ShowTaskViewButton" /t REG_DWORD /d 0 /f
 
 echo.
-echo ÉÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ»
-echo º Remove Windows Welcome Experience page º
-echo ÈÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ¼
+echo à¸©à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸›
+echo à¸š Remove Windows Welcome Experience page à¸š
+echo à¸¨à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸œ
 echo.
 reg add "HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager" /v "SubscribedContent-310093Enabled" /t REG_DWORD /d 0 /f
 
 echo.
-echo ÉÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ»
-echo º Remove suggestions and tips º
-echo ÈÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ¼
+echo à¸©à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸›
+echo à¸š Remove suggestions and tips à¸š
+echo à¸¨à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸œ
 echo.
 rem Tips
 reg add "HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager" /v "SoftLandingEnabled" /t REG_DWORD /d 0 /f
@@ -215,24 +215,24 @@ rem Cloud content user experience
 reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\CloudContent" /v "DisableWindowsConsumerFeatures" /t REG_DWORD /d 1 /f
 
 echo.
-echo ÉÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ»
-echo º Disable the Recently Added Apps list º
-echo ÈÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ¼
+echo à¸©à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸›
+echo à¸š Disable the Recently Added Apps list à¸š
+echo à¸¨à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸œ
 echo.
 reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Explorer" /v "HideRecentlyAddedApps" /t REG_DWORD /d 1 /f
 
 echo.
-echo ÉÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ»
-echo º Set Buttons on Main Taskbar to when taskbar is full º
-echo ÈÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ¼
+echo à¸©à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸›
+echo à¸š Set Buttons on Main Taskbar to when taskbar is full à¸š
+echo à¸¨à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸œ
 echo.
 reg add "HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /v "TaskbarGlomLevel" /t REG_DWORD /d 1 /f
 reg add "HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /v "MMTaskbarGlomLevel" /t REG_DWORD /d 1 /f
 
 echo.
-echo ÉÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ»
-echo º Remove Xbox Stuff º
-echo ÈÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ¼
+echo à¸©à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸›
+echo à¸š Remove Xbox Stuff à¸š
+echo à¸¨à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸œ
 echo.
 sc delete XblAuthManager
 sc delete XblGameSave
@@ -244,46 +244,46 @@ schtasks /Change /TN "Microsoft\XblGameSave\XblGameSaveTaskLogon" /disable
 reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows\GameDVR" /v AllowGameDVR /t REG_DWORD /d 0 /f
 
 echo.
-echo ÉÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ»
-echo º Disable Lock Screen º
-echo ÈÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ¼
+echo à¸©à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸›
+echo à¸š Disable Lock Screen à¸š
+echo à¸¨à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸œ
 echo.
 reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows\Personalization" /v NoLockScreen /t REG_DWORD /d 1 /f
 
 echo.
-echo ÉÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ»
-echo º Disable Windows Startup delay º
-echo ÈÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ¼
+echo à¸©à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸›
+echo à¸š Disable Windows Startup delay à¸š
+echo à¸¨à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸œ
 echo.
 reg add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Serialize" /v StartupDelayInMSec /t REG_DWORD /d 0 /f
 
 echo.
-echo ÉÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ»
-echo º Enable BlueLight Reduction º
-echo ÈÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ¼
+echo à¸©à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸›
+echo à¸š Enable BlueLight Reduction à¸š
+echo à¸¨à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸œ
 echo.
 reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\CloudStore\Store\DefaultAccount\Current\default$windows.data.bluelightreduction.bluelightreductionstate\windows.data.bluelightreduction.bluelightreductionstate" /v Data /t REG_BINARY /d 434201000a0201002a06d0b7e3f5052a2b0e1043420100c61497c1ecaf90ea89eb0100000000 /f
 
 echo.
-echo ÉÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ»
-echo º Remove guest password º
-echo ÈÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ¼
+echo à¸©à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸›
+echo à¸š Remove guest password à¸š
+echo à¸¨à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸œ
 echo.
-net user Invit‚ ""
+net user InvitÂ‚ ""
 
 echo.
-echo ÉÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ»
-echo º Remove local network password º
-echo ÈÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ¼
+echo à¸©à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸›
+echo à¸š Remove local network password à¸š
+echo à¸¨à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸œ
 echo.
 reg add "HKLM\SYSTEM\CurrentControlSet\Control\Lsa" /v everyoneincludesanonymous /t REG_DWORD /d 1 /f
 reg add "HKLM\SYSTEM\CurrentControlSet\Control\Lsa" /v NoLmHash /t REG_DWORD /d 0 /f
 reg add "HKLM\SYSTEM\CurrentControlSet\Services\LanmanServer\Parameters" /v RestrictNullSessAccess /t REG_DWORD /d 0 /f
 
 echo.
-echo ÉÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ»
-echo º Remove preinstalled apps º
-echo ÈÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ¼
+echo à¸©à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸›
+echo à¸š Remove preinstalled apps à¸š
+echo à¸¨à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸œ
 echo.
 rem Preinstalled apps, Minecraft Twitter etc all that - still need a clean default start menu to fully eliminate
 Reg Add "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager" /T REG_DWORD /V "PreInstalledAppsEnabled" /D 0 /F
@@ -295,21 +295,21 @@ Reg Add "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager" 
 Reg Add "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager" /T REG_DWORD /V "SubscribedContentEnabled" /D 0 /F
 
 echo.
-echo ÉÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ»
-echo º Enable "Dark Mode" º
-echo ÈÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ¼
+echo à¸©à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸›
+echo à¸š Enable "Dark Mode" à¸š
+echo à¸¨à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸œ
 echo.
 Reg Add "HKCU\Software\Microsoft\Windows\CurrentVersion\Themes\Personalize" /T REG_DWORD /V "AppsUseLightTheme" /D 0 /F
 Reg Add "HKLM\Software\Microsoft\Windows\CurrentVersion\Themes\Personalize" /T REG_DWORD /V "AppsUseLightTheme" /D 0 /F
 
 echo.
-echo ÉÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ»
-echo º Activate Verr Num on boot º
-echo ÈÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ¼
+echo à¸©à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸›
+echo à¸š Activate Verr Num on boot à¸š
+echo à¸¨à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸œ
 echo.
 :setverrnum
 set choice=
-set /p choice=Activer le pav‚ num‚rique au d‚marrage (y/n) ? 
+set /p choice=Activer le pavÂ‚ numÂ‚rique au dÂ‚marrage (y/n) ? 
 if not '%choice%'=='' set choice=%choice:~0,1%
 if '%choice%'=='y' goto verrnumy
 if '%choice%'=='n' goto endsetverrnum
@@ -325,9 +325,9 @@ echo.
 :endsetverrnum
 
 echo.
-echo ÉÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ»
-echo º Remove OneDrive º
-echo ÈÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ¼
+echo à¸©à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸›
+echo à¸š Remove OneDrive à¸š
+echo à¸¨à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸­à¸œ
 echo.
 :setonedrive
 echo.
@@ -467,9 +467,478 @@ $Bloatware = @(
 		"*Whiteboard*"
 		"*xbox*"
 		"*Wunderlist*"
+		"*DragonManiaLegends"
+		"*HiddenCityMysteryofShadows"
+		"*MarchofEmpires"
+		"*toolbar*"
+		"06DAC6F6.StumbleUpon"
+		"09B6C2D8.TheTreasuresofMontezuma3"
+		"0E3921EB.sMedioTrueDVDforHP"
+		"10084FinerCode.ChessTactics"
+		"11610RobertVarga.StopwatchFree"
+		"12262FiveStarGames.CrossyChickenRoad"
+		"12726CosmosChong.AdvancedEnglishDictionary"
+		"12926CandyKingStudio.StickmanWarriorsFighting"
+		"134D4F5B.Box*"
+		"1430GreenfieldTechnologie.PuzzleTouch*"
+		"17036IYIA.StorySaverperInstagram"
+		"184MagikHub.TextizeMindMap"
+		"1867LennardSprong.PortablePuzzleCollection"
+		"19965MattHafner.WifiAnalyzer"
+		"20815shootingapp.AirFileViewer"
+		"21090PaddyXu.QuickLook"
+		"2121MagicCraftGames.ExplorationLiteCraftMining"
+		"2164RexileStudios.FastYoutubeDownloader"
+		"21824TapFunGames.DashImpossibleGeometryLite"
+		"22062EdgeWaySoftware.TheLogosQuiz"
+		"22094SynapticsIncorporate.AudioControls"
+		"22094SynapticsIncorporate.SmartAudio2"
+		"22094SynapticsIncorporate.SmartAudio3"
+		"22380CatalanHilton.SolitaireDeluxe2019"
+		"22450.BestVideoConverter"
+		"24712m1dfmmengesha.TestFrameworkBP052015"
+		"24712m1dfmmengesha.TestFrameworkBackpublish050515"
+		"24712m1dfmmengesha.TestFrameworkwin81appxneutral06"
+		"24712m1dfmmengesha.mxtest2"
+		"25231MatthiasShapiro.BrickInstructions"
+		"25529kineapps.MyCalendar"
+		"25920Bala04.Mideo-VideoPlayer"
+		"26704KathyGrobbelaar.GPSRoutes"
+		"26720RandomSaladGamesLLC.HeartsDeluxe*"
+		"26720RandomSaladGamesLLC.Hexter"
+		"26720RandomSaladGamesLLC.SimpleMahjong"
+		"26720RandomSaladGamesLLC.SimpleMinesweeper"
+		"26720RandomSaladGamesLLC.SimpleSolitaire*"
+		"26720RandomSaladGamesLLC.SimpleSpiderSolitaire"
+		"26720RandomSaladGamesLLC.Spades"
+		"2703103D.McAfeeCentral"
+		"27182KingdomEntertainment.Bubble.io-Agario"
+		"27182KingdomEntertainment.FlippyKnife3D"
+		"27182KingdomEntertainment.PixelGun3DPocketCrafting"
+		"2724RoyaleDragonPacoGames.SpaceFrontierFree"
+		"27345RickyWalker.BlackjackMaster3"
+		"28287mfYSoftware.MiniRadioPlayer"
+		"29313JVGoldSoft.5962504421940"
+		"29534ukaszKurant.Logicos"
+		"29534ukaszKurant.Logicos2"
+		"29814LackoLuboslav.Bluetoothanalyzer"
+		"29982CsabaHarmath.UnCompress*"
+		"2CB8455F.Tanks"
+		"2FE3CB00.PICSART-PHOTOSTUDIO"
+		"2FE3CB00.PicsArt-PhotoStudio*"
+		"30472FranciscoRodrigues.14392819EE0CF"
+		"32443PocketNet.Paper.io"
+		"32988BernardoZamora.BackgammonPro"
+		"32988BernardoZamora.SolitaireHD"
+		"33916DoortoApps.HillClimbSimulation4x4"
+		"34697joal.EasyMovieMaker"
+		"35229MihaiM.QuizforGeeks"
+		"35300Kubajzl.MCGuide"
+		"35300Kubajzl.Slitherio"
+		"37162EcsolvoTechnologies.UltraStopwatchTimer"
+		"37442SublimeCo.AlarmClockForYou"
+		"37457BenoitRenaud.HexWar"
+		"37806WilhelmsenStudios.NowyouareinOrbit"
+		"39674HytoGame.TexasHoldemOnline"
+		"3973catalinux.BackgammonReloaded"
+		"39806kalinnikol.FreeCellSolitaireHD"
+		"39806kalinnikol.FreeHeartsHD"
+		"39806kalinnikol.TheSpiderSolitaireHD"
+		"401053BladeGames.3DDungeonEscape"
+		"40459File-New-Project.EarTrumpet"
+		"40538vasetest101.TESTFRAMEWORKABO2"
+		"41038AXILESOFT.ACGMEDIAPLAYER"
+		"41879VbfnetApps.FileDownloader"
+		"42569AlexisPayendelaGaran.OtakuAssistant"
+		"4262TopFreeGamesCOC.RunSausageRun"
+		"4408APPStar.RiderUWP"
+		"44218hungrymousegames.Mou"
+		"44352GadgetWE.UnitConversion"
+		"45375MiracleStudio.Splix.io"
+		"45515SkyLineGames.Backgammon.free"
+		"45604EntertainmentandMusi.Open7-Zip"
+		"46928bounde.EclipseManager*"
+		"47404LurkingDarknessOfRoy.SimpleStrategyRTS"
+		"48682KiddoTest.Frameworkuapbase"
+		"48938DngVnPhcThin.Deeep.io"
+		"4961ThePlaymatE.DigitalImagination"
+		"4AE8B7C2.Booking.comPartnerApp"
+		"4AE8B7C2.Booking.comPartnerEdition*"
+		"50856m1dfLL.TestFrameworkProd06221501"
+		"51248Raximus.Dobryplan"
+		"5269FriedChicken.YouTubeVideosDownloader*"
+		"52755VolatileDove.LovingCubeEngine-experimentaledi"
+		"55407EducationLife.LearntoMicrosoftAccess2010forBe"
+		"56081SweetGamesBox.SlitherSnake.io"
+		"56491SimulationFarmGames.100BallsOriginal"
+		"57591LegendsSonicSagaGame.Twenty48Solitaire"
+		"57689BIGWINStudio.Rider3D"
+		"57868Codaapp.UploadforInstagram"
+		"58033franckdakam.4KHDFreeWallpapers"
+		"5895BlastCrushGames.ExtremeCarDrivingSimulator2"
+		"59091GameDesignStudio.HeartsUnlimited"
+		"59091GameDesignStudio.MahjongDe*"
+		"59169Willpowersystems.BlueSkyBrowser"
+		"5A894077.McAfeeSecurity"
+		"64885BlueEdge.OneCalendar*"
+		"65284GameCabbage.OffRoadDriftSeries"
+		"65327Damicolo.BartSimpsonSkateMania"
+		"664D3057.MahjongDeluxeFree"
+		"6Wunderkinder.Wunderlist"
+		"7475BEDA.BitcoinMiner"
+		"780F5C7B.FarmUp"
+		"7906AAC0.TOSHIBACanadaPartners*"
+		"7906AAC0.ToshibaCanadaWarrantyService*"
+		"7EE7776C.LinkedInforWindows"
+		"7digitalLtd.7digitalMusicStore*"
+		"828B5831.HiddenCityMysteryofShadows"
+		"89006A2E.AutodeskSketchBook*"
+		"8tracksradio.8tracksradio"
+		"9393SKYFamily.RollyVortex"
+		"9426MICRO-STARINTERNATION.DragonCenter"
+		"95FE1D22.VUDUMoviesandTV"
+		"9E2F88E3.Twitter"
+		"9FD20106.MediaPlayerQueen"
+		"A-Volute.Nahimic"
+		"A025C540.Yandex.Music"
+		"A278AB0D.DisneyMagicKingdoms"
+		"A278AB0D.DragonManiaLegends*"
+		"A278AB0D.GameloftGames"
+		"A278AB0D.MarchofEmpires"
+		"A278AB0D.PaddingtonRun"
+		"A34E4AAB.YogaChef*"
+		"A8C75DD4.Therefore"
+		"A97ECD55.KYOCERAPrintCenter"
+		"AD2F1837.BOAudioControl"
+		"AD2F1837.BangOlufsenAudioControl"
+		"AD2F1837.DiscoverHPTouchpointManager"
+		"AD2F1837.GettingStartedwithWindows8"
+		"AD2F1837.HPAudioCenter"
+		"AD2F1837.HPBusinessSlimKeyboard"
+		"AD2F1837.HPClassroomManager"
+		"AD2F1837.HPConnectedMusic"
+		"AD2F1837.HPConnectedPhotopoweredbySnapfish"
+		"AD2F1837.HPCoolSense"
+		"AD2F1837.HPFileViewer"
+		"AD2F1837.HPGames"
+		"AD2F1837.HPInc.EnergyStar"
+		"AD2F1837.HPInteractiveLight"
+		"AD2F1837.HPJumpStart"
+		"AD2F1837.HPJumpStarts"
+		"AD2F1837.HPPCHardwareDiagnosticsWindows"
+		"AD2F1837.HPPhoneWise"
+		"AD2F1837.HPPowerManager"
+		"AD2F1837.HPPrimeFree"
+		"AD2F1837.HPPrimeGraphingCalculator"
+		"AD2F1837.HPPrivacySettings"
+		"AD2F1837.HPRegistration"
+		"AD2F1837.HPSupportAssistant"
+		"AD2F1837.HPSureShieldAI"
+		"AD2F1837.HPSystemEventUtility"
+		"AD2F1837.HPSystemInformation"
+		"AD2F1837.HPThermalControl"
+		"AD2F1837.HPWelcome"
+		"AD2F1837.HPWorkWise"
+		"AD2F1837.SmartfriendbyHPCare"
+		"AD2F1837.bulbDigitalPortfolioforHPSchoolPack"
+		"ASUSCloudCorporation.MobileFileExplorer"
+		"AccuWeather.AccuWeatherforWindows8*"
+		"AcerIncorporated*"
+		"AcerIncorporated.AcerCareCenter"
+		"AcerIncorporated.AcerCollection"
+		"AcerIncorporated.AcerCollectionS"
+		"AcerIncorporated.AcerExplorer"
+		"AcerIncorporated.AcerRegistration"
+		"AcerIncorporated.PredatorSenseV31"
+		"AcerIncorporated.QuickAccess"
+		"AcerIncorporated.UserExperienceImprovementProgram"
+		"AcrobatNotificationClient"
+		"ActiproSoftwareLLC*"
+		"ActiproSoftwareLLC.562882FEEB491"
+		"Adictiz.SpaceDogRun"
+		"AdobeNotificationClient"
+		"AdobeSystemsIncorporated.AdobePhotoshopExpress*"
+		"AdobeSystemsIncorporated.AdobeRevel*"
+		"AdvancedMicroDevicesInc-2.59462344778C5"
+		"AdvancedMicroDevicesInc-2.AMDDisplayEnhance"
+		"AeriaCanadaStudioInc.BlockWarsSurvivalGames"
+		"AeriaCanadaStudioInc.CopsVsRobbersJailBreak"
+		"Amazon.com.Amazon*"
+		"AppUp.IntelAppUpCatalogueAppWorldwideEdition*"
+		"AppUp.IntelGraphicsExperience"
+		"AppUp.IntelManagementandSecurityStatus"
+		"AppUp.IntelOptaneMemoryandStorageManagement"
+		"AppUp.ThunderboltControlCenter"
+		"B9ECED6F.ASUSBatteryHealthCharging"
+		"B9ECED6F.ASUSCalculator"
+		"B9ECED6F.ASUSFiveinARow"
+		"B9ECED6F.ASUSGIFTBOX*"
+		"B9ECED6F.ASUSPCAssistant"
+		"B9ECED6F.ASUSProductRegistrationProgram"
+		"B9ECED6F.ASUSTutor"
+		"B9ECED6F.ASUSTutorial"
+		"B9ECED6F.ASUSWelcome"
+		"B9ECED6F.ArmouryCrate"
+		"B9ECED6F.AsusConverter"
+		"B9ECED6F.GameVisual"
+		"B9ECED6F.MyASUS"
+		"B9ECED6F.TheWorldClock"
+		"B9ECED6F.eManual"
+		"BD9B8345.AlbumbySony*"
+		"BD9B8345.MusicbySony*"
+		"BD9B8345.Socialife*"
+		"BD9B8345.VAIOCare*"
+		"BD9B8345.VAIOMessageCenter*"
+		"BrowseTechLLC.AdRemover"
+		"C27EB4BA.DropboxOEM"
+		"COMPALELECTRONICSINC.AlienwareOSDKits"
+		"COMPALELECTRONICSINC.AlienwareTypeCaccessory"
+		"COMPALELECTRONICSINC.Alienwaredockingaccessory"
+		"ChaChaSearch.ChaChaPushNotification*"
+		"CirqueCorporation.DellPointStick"
+		"ClearChannelRadioDigital.iHeartRadio*"
+		"CrackleInc.Crackle*"
+		"CreativeTechnologyLtd.SoundBlasterConnect"
+		"CyberLink.PowerDirectorforMSI"
+		"CyberLinkCorp.ac.AcerCrystalEye*"
+		"CyberLinkCorp.ac.PhotoDirectorforacerDesktop"
+		"CyberLinkCorp.ac.PowerDirectorforacerDesktop"
+		"CyberLinkCorp.ac.SocialJogger*"
+		"CyberLinkCorp.hs.PowerMediaPlayer14forHPConsumerPC"
+		"CyberLinkCorp.hs.YouCamforHP*"
+		"CyberLinkCorp.id.PowerDVDforLenovoIdea*"
+		"CyberLinkCorp.ss.SCamera"
+		"CyberLinkCorp.ss.SGallery"
+		"CyberLinkCorp.ss.SPlayer"
+		"CyberLinkCorp.th.Power2GoforLenovo"
+		"CyberLinkCorp.th.PowerDVDforLenovo"
+		"D52A8D61.FarmVille2CountryEscape*"
+		"D5BE6627.CompuCleverITHMBViewer"
+		"D5BE6627.UltraBlu-rayPlayerSupportsDVD"
+		"D5EA27B7.Duolingo-LearnLanguagesforFree*"
+		"DB6EA5DB.CyberLinkMediaSuiteEssentials*"
+		"DB6EA5DB.MediaSuiteEssentialsforDell"
+		"DB6EA5DB.Power2GoforDell"
+		"DB6EA5DB.PowerDirectorforDell"
+		"DB6EA5DB.PowerMediaPlayerforDell"
+		"DBA41F73.ColorNoteNotepadNotes"
+		"DTSInc.51789B84BE3D7"
+		"DTSInc.DTSCustomforAsus"
+		"DTSInc.DTSHeadphoneXv1"
+		"DailymotionSA.Dailymotion*"
+		"DellInc.AlienwareCommandCenter"
+		"DellInc.AlienwareCustomerConnect"
+		"DellInc.AlienwareProductRegistration"
+		"DellInc.DellCommandUpdate"
+		"DellInc.DellCustomerConnect"
+		"DellInc.DellDigitalDelivery"
+		"DellInc.DellGettingStartedwithWindows8"
+		"DellInc.DellHelpSupport"
+		"DellInc.DellPowerManager"
+		"DellInc.DellProductRegistration"
+		"DellInc.DellShop"
+		"DellInc.DellSupportAssistforPCs"
+		"DellInc.DellUpdate"
+		"DellInc.MyDell"
+		"DeviceDoctor.RAROpener"
+		"DevolverDigital.MyFriendPedroWin10"
+		"DolbyLaboratories.DolbyAccess*"
+		"DolbyLaboratories.DolbyAtmosSoundSystem"
+		"DolbyLaboratories.DolbyAtmosforGaming"
+		"DolbyLaboratories.DolbyAudioPremium"
+		"Drawboard.DrawboardPDF*"
+		"DriverToaster*"
+		"E046963F.LenovoCompanion*"
+		"E046963F.LenovoSupport*"
+		"E0469640.CameraMan*"
+		"E0469640.DeviceCollaboration*"
+		"E0469640.LenovoRecommends*"
+		"E0469640.LenovoUtility"
+		"E0469640.NerveCenter"
+		"E0469640.YogaCameraMan*"
+		"E0469640.YogaPhoneCompanion*"
+		"E0469640.YogaPicks*"
+		"E3D1C1C1.MEOGO"
+		"E97CB0A1.LogitechCameraController"
+		"ELANMicroelectronicsCorpo.ELANTouchpadSetting"
+		"ESPNInc.WatchESPN*"
+		"Ebates.EbatesCashBack"
+		"EncyclopaediaBritannica.EncyclopaediaBritannica*"
+		"EnnovaResearch.ToshibaPlaces"
+		"Evernote.Evernote"
+		"Evernote.Skitch*"
+		"EvilGrogGamesGmbH.WorldPeaceGeneral2017"
+		"F223684A.SkateboardParty2Lite"
+		"F5080380.ASUSPowerDirector*"
+		"Facebook.317180B0BB486"
+		"Facebook.Facebook"
+		"Facebook.InstagramBeta*"
+		"FilmOnLiveTVFree.FilmOnLiveTVFree*"
+		"Fingersoft.HillClimbRacing"
+		"Fingersoft.HillClimbRacing2"
+		"FingertappsInstruments*"
+		"FingertappsOrganizer*"
+		"Flipboard.Flipboard*"
+		"FreshPaint*"
+		"GAMELOFTSA.Asphalt8Airborne*"
+		"GAMELOFTSA.DespicableMeMinionRush"
+		"GAMELOFTSA.GTRacing2TheRealCarExperience"
+		"GAMELOFTSA.SharkDash*"
+		"GIANTSSoftware.FarmingSimulator14"
+		"GameCircusLLC.CoinDozer"
+		"GameGeneticsApps.FreeOnlineGamesforLenovo*"
+		"GettingStartedwithWindows8*"
+		"GoogleInc.GoogleSearch"
+		"HPConnectedMusic*"
+		"HPConnectedPhotopoweredbySnapfish*"
+		"HPRegistration*"
+		"HuluLLC.HuluPlus*"
+		"InsightAssessment.CriticalThinkingInsight"
+		"JigsWar*"
+		"K-NFBReadingTechnologiesI.BookPlace*"
+		"KasperskyLab.KasperskyNow*"
+		"KeeperSecurityInc.Keeper"
+		"KindleforWindows8*"
+		"Kortext.Kortext"
+		"LGElectronics.LGControlCenter"
+		"LGElectronics.LGEasyGuide2.0"
+		"LGElectronics.LGOSD3"
+		"LGElectronics.LGReaderMode"
+		"LGElectronics.LGTroubleShooting2.0"
+		"LenovoCorporation.LenovoID*"
+		"LenovoCorporation.LenovoSettings*"
+		"MAGIX.MusicMakerJam*"
+		"MSWP.DellTypeCStatus"
+		"McAfeeInc.01.McAfeeSecurityAdvisorforDell"
+		"McAfeeInc.05.McAfeeSecurityAdvisorforASUS"
+		"McAfeeInc.06.McAfeeSecurityAdvisorforLenovo"
+		"Mobigame.ZombieTsunami"
+		"MobileFileExplorer*"
+		"MobilesRepublic.NewsRepublic"
+		"MobirateLtd.ParkingMania"
+		"MusicMakerJam*"
+		"NAMCOBANDAIGamesInc.PAC-MANChampionshipEditionDXfo*"
+		"NAVER.LINEwin8*"
+		"NBCUniversalMediaLLC.NBCSportsLiveExtra*"
+		"NORDCURRENT.COOKINGFEVER"
+		"NevosoftLLC.MushroomAge"
+		"NextGenerationGames.WildDinosaurSniperHuntingHuntt"
+		"Nordcurrent.CookingFever"
+		"OCS.OCS"
+		"Ookla.SpeedtestbyOokla"
+		"OrangeFrance.MaLivebox"
+		"OrangeFrance.MailOrange"
+		"OrangeFrance.TVdOrange"
+		"PORTOEDITORA.EVe-Manuais"
+		"PandoraMediaInc.29680B314EFC2"
+		"PhotoAndVideoLabsLLC.MakeaPoster-ContinuumMediaSer"
+		"PinballFx2*"
+		"Pinterest.PinItButton"
+		"Playtika.CaesarsSlotsFreeCasino*"
+		"Priceline"
+		"PricelinePartnerNetwork.Booking.comEMEABigsavingso"
+		"PricelinePartnerNetwork.Booking.comUSABigsavingson"
+		"PricelinePartnerNetwork.Priceline.comTheBestDealso"
+		"PublicationsInternational.iCookbookSE*"
+		"ROBLOXCorporation.ROBLOX"
+		"RandomSaladGamesLLC.GinRummyProforHP*"
+		"RandomSaladGamesLLC.HeartsforHP"
+		"ReaderNotificationClient"
+		"RealtekSemiconductorCorp.HPAudioControl"
+		"RealtekSemiconductorCorp.RealtekAudioControl"
+		"Relay.com.KiosqueRelay"
+		"RivetNetworks.KillerControlCenter"
+		"RivetNetworks.SmartByte"
+		"RoomAdjustment"
+		"RubenGerlach.Solitaire-Palace"
+		"SAMSUNGELECTRONICSCO.LTD.OnlineSupportSService"
+		"SAMSUNGELECTRONICSCO.LTD.PCGallery"
+		"SAMSUNGELECTRONICSCO.LTD.PCMessage"
+		"SAMSUNGELECTRONICSCO.LTD.SamsungPCCleaner"
+		"SAMSUNGELECTRONICSCO.LTD.SamsungPrinterExperience"
+		"SAMSUNGELECTRONICSCO.LTD.Wi-FiTransfer"
+		"STMicroelectronicsMEMS.DellFreeFallDataProtection"
+		"ScreenovateTechnologies.DellMobileConnect"
+		"ShazamEntertainmentLtd.Shazam*"
+		"SilverCreekEntertainment.HardwoodHearts"
+		"SkisoSoft.FireEngineSimulator"
+		"SkisoSoft.TrashTruckSimulator"
+		"SocialQuantumIreland.WildWestNewFrontier"
+		"SolidRhino.SteelTactics"
+		"SonicWALL.MobileConnect"
+		"SpotifyAB.SpotifyMusic"
+		"SprakelsoftUG.CrocsWorld"
+		"SprakelsoftUG.FlapFlapFlap"
+		"SymantecCorporation.5478111E43ACF"
+		"SymantecCorporation.NortonSafeWeb"
+		"SymantecCorporation.NortonStudio*"
+		"SynapticsIncorporated.SynHPCommercialDApp"
+		"SynapticsIncorporated.SynHPConsumerDApp"
+		"TOSHIBATEC.ToshibaPrintExperience"
+		"TeenGamesLLC.HelicopterSimulator3DFree-ContinuumRe"
+		"TelegraphMediaGroupLtd.TheTelegraphforLenovo*"
+		"TelltaleGames.MinecraftStoryMode-ATelltaleGamesSer"
+		"TheNewYorkTimes.NYTCrossword*"
+		"ThumbmunkeysLtd.PhototasticCollage"
+		"ThumbmunkeysLtd.PhototasticCollage*"
+		"ToshibaAmericaInformation.ToshibaCentral*"
+		"TreeCardGames.HeartsFree"
+		"TripAdvisorLLC.TripAdvisorHotelsFlightsRestaurants*"
+		"TuneIn.TuneInRadio*"
+		"UniversalMusicMobile.HPLOUNGE"
+		"UptoElevenDigitalSolution.mysms-Textanywhere*"
+		"VectorUnit.BeachBuggyRacing"
+		"Vimeo.Vimeo*"
+		"WavesAudio.MaxxAudioProforDell2019"
+		"WavesAudio.WavesMaxxAudioProforDell"
+		"Weather.TheWeatherChannelforHP*"
+		"Weather.TheWeatherChannelforLenovo*"
+		"WeatherBug.a.WeatherBug"
+		"WhatsNew"
+		"WildTangentGames*"
+		"WildTangentGames.-GamesApp-"
+		"WildTangentGames.63435CFB65F55"
+		"WinZipComputing.WinZipUniversal*"
+		"XINGAG.XING"
+		"XLabzTechnologies.22450B0065C6A"
+		"XeroxCorp.PrintExperience"
+		"YouSendIt.HighTailForLenovo*"
+		"ZeptoLabUKLimited.CutTheRope"
+		"ZhuhaiKingsoftOfficeSoftw.WPSOffice"
+		"ZhuhaiKingsoftOfficeSoftw.WPSOfficeforFree"
+		"ZinioLLC.Zinio*"
+		"Zolmo.JamiesRecipes"
+		"avonmobility.EnglishClub"
+		"eBayInc.eBay*"
+		"esobiIncorporated.newsXpressoMetro*"
+		"fingertappsASUS.FingertappsInstrumentsrecommendedb*"
+		"fingertappsASUS.JigsWarrecommendedbyASUS*"
+		"fingertappsasus.FingertappsOrganizerrecommendedbyA*"
+		"flaregamesGmbH.RoyalRevolt2*"
+		"king.com*"
+		"king.com.BubbleWitch3Saga"
+		"king.com.CandyCrushFriends"
+		"king.com.CandyCrushSaga"
+		"king.com.CandyCrushSodaSaga"
+		"king.com.FarmHeroesSaga"
+		"king.com.ParadiseBay"
+		"n-tvNachrichtenfernsehenG.n-tvNachrichten"
+		"sMedioforHP.sMedio360*"
+		"sMedioforToshiba.TOSHIBAMediaPlayerbysMedioTrueLin*"
+		"www.cyberlink.com.AudioDirectorforLGE"
+		"www.cyberlink.com.ColorDirectorforLGE"
+		"www.cyberlink.com.PhotoDirectorforLGE"
+		"www.cyberlink.com.PowerDirectorforLGE"
+		"www.cyberlink.com.PowerMediaPlayerforLGE"
+		"zuukaInc.iStoryTimeLibrary*"
 )
+$AppxPackages = Get-AppxProvisionedPackage -online | select-object PackageName,Displayname
+$ProPackageList = Get-AppxPackage -AllUsers | select-object PackageFullName, Name
+
 foreach ($Bloat in $Bloatware) {
+	If($AppxPackages.DisplayName -match $Bloat -or $ProPackageList.Name -match $Bloat ) {
 		Get-AppxPackage $Bloat| Remove-AppxPackage
 		Get-AppxProvisionedPackage -Online | Where-Object DisplayName -like $Bloat | Remove-AppxProvisionedPackage -Online
 		Write-Output "Trying to remove $Bloat."
+	}
 }
