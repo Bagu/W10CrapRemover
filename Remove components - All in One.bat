@@ -8,42 +8,47 @@ rem Permissions verifications
 
 rem Not admin
 if '%errorlevel%' NEQ '0' (
-echo V‚rification des privilŠges administrateur
+echo Vrification des privilges administrateur
 goto UACPrompt
 ) else ( goto gotAdmin )
 
 rem Prompt for admin rights
 :UACPrompt
-echo Set UAC = CreateObject^("Shell.Application"^) > "%temp%\getadmin.vbs"
-set params = %*:"="
-echo UAC.ShellExecute "%~s0", "%params%", "", "runas", 1 >> "%temp%\getadmin.vbs"
+rem echo Set UAC = CreateObject^("Shell.Application"^) > "%temp%\getadmin.vbs"
+rem set params = %*:"="
+rem echo UAC.ShellExecute "%~s0", "%params%", "", "runas", 1 >> "%temp%\getadmin.vbs"
 
-"%temp%\getadmin.vbs"
-exit /B
+rem "%temp%\getadmin.vbs"
+echo.
+echo Vous n'avez pas les droits administrateurs, certains tweaks ne fonctionneront pas.
+echo.
+timeout 5
+goto letstart
 
 :gotAdmin
-if exist "%temp%\getadmin.vbs" ( del "%temp%\getadmin.vbs" )
-pushd "%CD%"
-CD /D "%~dp0"
+rem if exist "%temp%\getadmin.vbs" ( del "%temp%\getadmin.vbs" )
+rem pushd "%CD%"
+rem CD /D "%~dp0"
 
 rem Use local variables
 setlocal
 rem Change current directory to script location - useful for including .ps1 files
-cd %~dp0
+rem cd %~dp0
 
-echo ÉÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ»
-echo º Windows 10 craps remover º
-echo ÈÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ¼
+:letstart
+echo ษออออออออออออออออออออออออออป
+echo บ Windows 10 craps remover บ
+echo ศออออออออออออออออออออออออออผ
 echo.
 echo Cet utilitaire permet de nettoyer le mieux
-echo possible les installations fraŒches de Windows 10.
-echo Il restera quelques paramŠtres … changer
+echo possible les installations fraches de Windows 10.
+echo Il restera quelques paramtres … changer
 echo et quelques programme … retirer.
 echo.
 echo.
-echo Prenez le temps de v‚rifier les programmes supprim‚s par cet utilitaire.
-echo Certains d'entre eux pourraient vous ˆtre utiles.
-echo La liste des programmes supprim‚s se trouve en fin de fichier.
+echo Prenez le temps de vrifier les programmes supprims par cet utilitaire.
+echo Certains d'entre eux pourraient vous tre utiles.
+echo La liste des programmes supprims se trouve en fin de fichier.
 echo.
 timeout 10
 
@@ -53,16 +58,16 @@ powershell -executionpolicy remotesigned -Command "Invoke-Expression $([System.I
 endlocal
 
 echo.
-echo ÉÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ»
-echo º Remove licence checking º
-echo ÈÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ¼
+echo ษอออออออออออออออออออออออออป
+echo บ Remove licence checking บ
+echo ศอออออออออออออออออออออออออผ
 echo.
 reg add "HKLM\Software\Policies\Microsoft\Windows NT\CurrentVersion\Software Protection Platform" /v NoGenTicket /t REG_DWORD /d 1 /f
 
 echo.
-echo ÉÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ»
-echo º Change many settings º
-echo ÈÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ¼
+echo ษออออออออออออออออออออออป
+echo บ Change many settings บ
+echo ศออออออออออออออออออออออผ
 echo.
 @rem *** Disable Some Service ***
 sc stop DiagTrack
@@ -142,9 +147,9 @@ schtasks /delete /f /tn "\Microsoft\Windows\media center\sqlliterecoverytask"
 schtasks /delete /f /tn "\Microsoft\Windows\media center\updaterecordpath"
 
 echo.
-echo ÉÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ»
-echo º Set Internet Explorer settings º
-echo ÈÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ¼
+echo ษออออออออออออออออออออออออออออออออป
+echo บ Set Internet Explorer settings บ
+echo ศออออออออออออออออออออออออออออออออผ
 echo.
 rem Disable IE First Run Wizard and RSS Feeds
 reg add "HKLM\SOFTWARE\Policies\Microsoft\Internet Explorer\Main" /v "DisableFirstRunCustomize" /t REG_DWORD /d 1 /f
@@ -161,9 +166,9 @@ rem Disable warm is mix for secure and not secure elements
 reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Internet Settings" /v "WarnonZoneCrossing" /t REG_DWORD /d 0 /f
 
 echo.
-echo ÉÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ»
-echo º Remove Telemetry and Data Collection º
-echo ÈÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ¼
+echo ษออออออออออออออออออออออออออออออออออออออป
+echo บ Remove Telemetry and Data Collection บ
+echo ศออออออออออออออออออออออออออออออออออออออผ
 echo.
 reg add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Device Metadata" /v PreventDeviceMetadataFromNetwork /t REG_DWORD /d 1 /f
 reg add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\DataCollection" /v "AllowTelemetry" /t REG_DWORD /d 0 /f
@@ -176,23 +181,23 @@ reg add "HKLM\SYSTEM\CurrentControlSet\Control\WMI\AutoLogger\AutoLogger-Diagtra
 reg add "HKLM\SYSTEM\CurrentControlSet\Control\WMI\AutoLogger\SQMLogger" /v "Start" /t REG_DWORD /d 0 /f
 
 echo.
-echo ÉÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ»
-echo º Show file extensions in Explorer º
-echo ÈÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ¼
+echo ษออออออออออออออออออออออออออออออออออป
+echo บ Show file extensions in Explorer บ
+echo ศออออออออออออออออออออออออออออออออออผ
 echo.
 reg add "HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /v "HideFileExt" /t  REG_DWORD /d 0 /f
 
 echo.
-echo ÉÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ»
-echo º Disable Cortana º
-echo ÈÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ¼
+echo ษอออออออออออออออออป
+echo บ Disable Cortana บ
+echo ศอออออออออออออออออผ
 echo.
 reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows\Windows Search" /v AllowCortana /t REG_DWORD /d 0 /f
 
 echo.
-echo ÉÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ»
-echo º Remove Windows Tips º
-echo ÈÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ¼
+echo ษอออออออออออออออออออออป
+echo บ Remove Windows Tips บ
+echo ศอออออออออออออออออออออผ
 echo.
 reg add "HKLM\Software\Policies\Microsoft\Windows\CloudContent" /v DisableSoftLanding /t REG_DWORD /d 1 /f
 reg add "HKLM\Software\Policies\Microsoft\Windows\CloudContent" /v DisableWindowsSpotlightFeatures /t REG_DWORD /d 1 /f
@@ -201,16 +206,16 @@ reg add "HKLM\Software\Policies\Microsoft\Windows\DataCollection" /v DoNotShowFe
 reg add "HKLM\Software\Policies\Microsoft\WindowsInkWorkspace" /v AllowSuggestedAppsInWindowsInkWorkspace /t REG_DWORD /d 0 /f
 
 echo.
-echo ÉÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ»
-echo º Turn off Windows Error Reporting º
-echo ÈÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ¼
+echo ษออออออออออออออออออออออออออออออออออป
+echo บ Turn off Windows Error Reporting บ
+echo ศออออออออออออออออออออออออออออออออออผ
 echo.
 reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows\Windows Error Reporting" /v Disabled /t REG_DWORD /d 1 /f
 
 echo.
-echo ÉÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ»
-echo º Remove Contact button and co in Taskbar º
-echo ÈÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ¼
+echo ษอออออออออออออออออออออออออออออออออออออออออป
+echo บ Remove Contact button and co in Taskbar บ
+echo ศอออออออออออออออออออออออออออออออออออออออออผ
 echo.
 reg add "HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced\People" /v "PeopleBand" /t REG_DWORD /d 0 /f
 reg add "HKU\.DEFAULT\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced\People" /V PeopleBand /t REG_DWORD /d 0 /f
@@ -218,16 +223,16 @@ reg add "HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Ad
 reg add "HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /v "ShowTaskViewButton" /t REG_DWORD /d 0 /f
 
 echo.
-echo ÉÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ»
-echo º Remove Windows Welcome Experience page º
-echo ÈÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ¼
+echo ษออออออออออออออออออออออออออออออออออออออออป
+echo บ Remove Windows Welcome Experience page บ
+echo ศออออออออออออออออออออออออออออออออออออออออผ
 echo.
 reg add "HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager" /v "SubscribedContent-310093Enabled" /t REG_DWORD /d 0 /f
 
 echo.
-echo ÉÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ»
-echo º Remove suggestions and tips º
-echo ÈÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ¼
+echo ษอออออออออออออออออออออออออออออป
+echo บ Remove suggestions and tips บ
+echo ศอออออออออออออออออออออออออออออผ
 echo.
 rem Tips
 reg add "HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager" /v "SoftLandingEnabled" /t REG_DWORD /d 0 /f
@@ -243,26 +248,28 @@ rem Timeline suggestions
 reg add "HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager" /v "SubscribedContent-353698Enabled" /t REG_DWORD /d 0 /f
 rem Cloud content user experience
 reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\CloudContent" /v "DisableWindowsConsumerFeatures" /t REG_DWORD /d 1 /f
+rem Remove the finish config message
+reg add "HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\UserProfileEngagement" /v "ScoobeSystemSettingEnabled" /t REG_DWORD /d 0 /f
 
 echo.
-echo ÉÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ»
-echo º Disable the Recently Added Apps list º
-echo ÈÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ¼
+echo ษออออออออออออออออออออออออออออออออออออออป
+echo บ Disable the Recently Added Apps list บ
+echo ศออออออออออออออออออออออออออออออออออออออผ
 echo.
 reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Explorer" /v "HideRecentlyAddedApps" /t REG_DWORD /d 1 /f
 
 echo.
-echo ÉÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ»
-echo º Set Buttons on Main Taskbar to when taskbar is full º
-echo ÈÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ¼
+echo ษอออออออออออออออออออออออออออออออออออออออออออออออออออออป
+echo บ Set Buttons on Main Taskbar to when taskbar is full บ
+echo ศอออออออออออออออออออออออออออออออออออออออออออออออออออออผ
 echo.
 reg add "HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /v "TaskbarGlomLevel" /t REG_DWORD /d 1 /f
 reg add "HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /v "MMTaskbarGlomLevel" /t REG_DWORD /d 1 /f
 
 echo.
-echo ÉÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ»
-echo º Remove Xbox Stuff º
-echo ÈÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ¼
+echo ษอออออออออออออออออออป
+echo บ Remove Xbox Stuff บ
+echo ศอออออออออออออออออออผ
 echo.
 sc stop XblAuthManager
 sc stop XblGameSave
@@ -280,46 +287,53 @@ schtasks /Change /TN "Microsoft\XblGameSave\XblGameSaveTaskLogon" /disable
 reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows\GameDVR" /v AllowGameDVR /t REG_DWORD /d 0 /f
 
 echo.
-echo ÉÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ»
-echo º Disable Lock Screen º
-echo ÈÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ¼
+echo ษอออออออออออออออออออออป
+echo บ Disable Lock Screen บ
+echo ศอออออออออออออออออออออผ
 echo.
 reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows\Personalization" /v NoLockScreen /t REG_DWORD /d 1 /f
 
 echo.
-echo ÉÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ»
-echo º Disable Windows Startup delay º
-echo ÈÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ¼
+echo ษอออออออออออออออออออออออออออออออป
+echo บ Disable Windows Startup delay บ
+echo ศอออออออออออออออออออออออออออออออผ
 echo.
 reg add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Serialize" /v StartupDelayInMSec /t REG_DWORD /d 0 /f
 
 echo.
-echo ÉÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ»
-echo º Enable BlueLight Reduction º
-echo ÈÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ¼
+echo ษออออออออออออออออออออออออออออป
+echo บ Enable BlueLight Reduction บ
+echo ศออออออออออออออออออออออออออออผ
 echo.
 reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\CloudStore\Store\DefaultAccount\Current\default$windows.data.bluelightreduction.bluelightreductionstate\windows.data.bluelightreduction.bluelightreductionstate" /v Data /t REG_BINARY /d 434201000a0201002a06d0b7e3f5052a2b0e1043420100c61497c1ecaf90ea89eb0100000000 /f
 
 echo.
-echo ÉÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ»
-echo º Remove guest password º
-echo ÈÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ¼
+echo ษอออออออออออออออออออออออป
+echo บ Remove guest password บ
+echo ศอออออออออออออออออออออออผ
 echo.
-net user Invit‚ ""
+net user Invit ""
 
 echo.
-echo ÉÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ»
-echo º Remove local network password º
-echo ÈÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ¼
+echo ษอออออออออออออออออออออออออออออออป
+echo บ Remove local network password บ
+echo ศอออออออออออออออออออออออออออออออผ
 echo.
 reg add "HKLM\SYSTEM\CurrentControlSet\Control\Lsa" /v everyoneincludesanonymous /t REG_DWORD /d 1 /f
 reg add "HKLM\SYSTEM\CurrentControlSet\Control\Lsa" /v NoLmHash /t REG_DWORD /d 0 /f
 reg add "HKLM\SYSTEM\CurrentControlSet\Services\LanmanServer\Parameters" /v RestrictNullSessAccess /t REG_DWORD /d 0 /f
 
 echo.
-echo ÉÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ»
-echo º Remove preinstalled apps º
-echo ÈÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ¼
+echo ษออออออออออออออออออออออออออออออออออออออออออออป
+echo บ Allow local network access when smb1 share บ
+echo ศออออออออออออออออออออออออออออออออออออออออออออผ
+echo.
+reg add "HKLM\SYSTEM\CurrentControlSet\Services\LanmanWorkstation\Parameters" /v AllowInsecureGuestAuth /t reg_dword /d 00000001 /f
+
+echo.
+echo ษออออออออออออออออออออออออออป
+echo บ Remove preinstalled apps บ
+echo ศออออออออออออออออออออออออออผ
 echo.
 rem Preinstalled apps, Minecraft Twitter etc all that - still need a clean default start menu to fully eliminate
 Reg Add "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager" /T REG_DWORD /V "PreInstalledAppsEnabled" /D 0 /F
@@ -331,21 +345,21 @@ Reg Add "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager" 
 Reg Add "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager" /T REG_DWORD /V "SubscribedContentEnabled" /D 0 /F
 
 echo.
-echo ÉÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ»
-echo º Enable "Dark Mode" º
-echo ÈÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ¼
+echo ษออออออออออออออออออออป
+echo บ Enable "Dark Mode" บ
+echo ศออออออออออออออออออออผ
 echo.
 Reg Add "HKCU\Software\Microsoft\Windows\CurrentVersion\Themes\Personalize" /T REG_DWORD /V "AppsUseLightTheme" /D 0 /F
 Reg Add "HKLM\Software\Microsoft\Windows\CurrentVersion\Themes\Personalize" /T REG_DWORD /V "AppsUseLightTheme" /D 0 /F
 
 echo.
-echo ÉÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ»
-echo º Activate Verr Num on boot º
-echo ÈÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ¼
+echo ษอออออออออออออออออออออออออออป
+echo บ Activate Verr Num on boot บ
+echo ศอออออออออออออออออออออออออออผ
 echo.
 :setverrnum
 set choice=
-set /p choice=Activer le pav‚ num‚rique au d‚marrage (y/n) ? 
+set /p choice=Activer le pav numrique au dmarrage (y/n) ? 
 if not '%choice%'=='' set choice=%choice:~0,1%
 if '%choice%'=='y' goto verrnumy
 if '%choice%'=='n' goto endsetverrnum
@@ -361,9 +375,9 @@ echo.
 :endsetverrnum
 
 echo.
-echo ÉÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ»
-echo º Remove OneDrive º
-echo ÈÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ¼
+echo ษอออออออออออออออออป
+echo บ Remove OneDrive บ
+echo ศอออออออออออออออออผ
 echo.
 :setonedrive
 echo.
@@ -408,17 +422,17 @@ REG DELETE "HKEY_CLASSES_ROOT\Wow6432Node\CLSID\{018D5C66-4533-4307-9B53-224DE2E
 :endsetonedrive
 
 echo.
-echo ÉÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ»
-echo º Restart explorer.exe to apply some settings... º
-echo ÈÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ¼
+echo ษออออออออออออออออออออออออออออออออออออออออออออออออป
+echo บ Restart explorer.exe to apply some settings... บ
+echo ศออออออออออออออออออออออออออออออออออออออออออออออออผ
 echo.
 start /wait TASKKILL /F /IM explorer.exe
 start explorer.exe
 
 echo.
-echo ÉÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ»
-echo º Update Windows Defender º
-echo ÈÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ¼
+echo ษอออออออออออออออออออออออออป
+echo บ Update Windows Defender บ
+echo ศอออออออออออออออออออออออออผ
 echo.
 "%ProgramFiles%\Windows Defender\mpcmdrun.exe" -SignatureUpdate
 
@@ -434,9 +448,11 @@ goto:eof
 #. ".\anotherScript.ps1"
 $Bloatware = @(
 		"Microsoft.BingNews"
+		"Microsoft.Windows.Cortana"
+		"Microsoft.549981C3F5F10"
 		"Microsoft.GetHelp"
 		"Microsoft.Getstarted"
-		"Microsoft.Messaging"
+		#"Microsoft.Messaging"
 		"Microsoft.Microsoft3DViewer"
 		"Microsoft.MicrosoftOfficeHub"
 		"Microsoft.MicrosoftSolitaireCollection"
@@ -452,7 +468,7 @@ $Bloatware = @(
 		"Microsoft.StorePurchaseApp"
 		"Microsoft.Whiteboard"
 		"Microsoft.WindowsAlarms"
-		"microsoft.windowscommunicationsapps"
+		#"microsoft.windowscommunicationsapps"
 		"Microsoft.WindowsFeedbackHub"
 		"Microsoft.WindowsMaps"
 		"Microsoft.Xbox.TCUI"
