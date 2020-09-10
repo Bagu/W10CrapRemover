@@ -308,29 +308,6 @@ echo.
 reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\CloudStore\Store\DefaultAccount\Current\default$windows.data.bluelightreduction.bluelightreductionstate\windows.data.bluelightreduction.bluelightreductionstate" /v Data /t REG_BINARY /d 434201000a0201002a06d0b7e3f5052a2b0e1043420100c61497c1ecaf90ea89eb0100000000 /f
 
 echo.
-echo ษอออออออออออออออออออออออป
-echo บ Remove guest password บ
-echo ศอออออออออออออออออออออออผ
-echo.
-net user Invit ""
-
-echo.
-echo ษอออออออออออออออออออออออออออออออป
-echo บ Remove local network password บ
-echo ศอออออออออออออออออออออออออออออออผ
-echo.
-reg add "HKLM\SYSTEM\CurrentControlSet\Control\Lsa" /v everyoneincludesanonymous /t REG_DWORD /d 1 /f
-reg add "HKLM\SYSTEM\CurrentControlSet\Control\Lsa" /v NoLmHash /t REG_DWORD /d 0 /f
-reg add "HKLM\SYSTEM\CurrentControlSet\Services\LanmanServer\Parameters" /v RestrictNullSessAccess /t REG_DWORD /d 0 /f
-
-echo.
-echo ษออออออออออออออออออออออออออออออออออออออออออออป
-echo บ Allow local network access when smb1 share บ
-echo ศออออออออออออออออออออออออออออออออออออออออออออผ
-echo.
-reg add "HKLM\SYSTEM\CurrentControlSet\Services\LanmanWorkstation\Parameters" /v AllowInsecureGuestAuth /t reg_dword /d 00000001 /f
-
-echo.
 echo ษออออออออออออออออออออออออออป
 echo บ Remove preinstalled apps บ
 echo ศออออออออออออออออออออออออออผ
